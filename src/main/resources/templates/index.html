@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Accueil</title>
+</head>
+<body>
+<div layout:fragment="contentProductVue">
+  <div class="container mt-5">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-4">
+            <img th:src="@{images/image0.jpg}" class="img-fluid">
+          </div>
+          <div class="col-md-8">
+            <h2 class="card-title mt-2">PRODUIT COSMETIQUE BIO</h2>
+            <p>Les produits cosmetiques fabriques a base de produits bio</p>
+            <button class="btn btn-danger">Read More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="#">
+              <img src="images/image0.jpg" class="img-fluid">
+            </a>
+          </div>
+          <div class="col-md-8">
+            <h2 class="card-title mt-3">PRODUIT ALIMENTAIRE BIO</h2>
+            <p>Les produits cosmetiques fabriques a base de produits bio</p>
+            <button class="btn btn-danger">Read More</button>
+          </div>
+        </div>
+      </div>
+
+        <div class="card mt-4">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="/images/images5.jpg" class="img-fluid">
+              </div>
+              <div class="col-md-8">
+                <h2 class="card-title mt-3">PRODUIT ALIMENTAIRE BIO</h2>
+                <p>Les produits cosmetiques fabriques a base de produits bio</p>
+                <button class="btn btn-danger">Read More</button>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+</body>
+</html>

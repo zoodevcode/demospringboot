@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="template">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Ajout Article</title>
+</head>
+<body>
+  <div layout:fragment="contentProductVue">
+  <div class="container mt-3">
+      <div class="card md-6">
+          <div class="card-header text-center bg-primary text-white" th:if="${mode=='ajout'}"><h2>Formulaire de saisie d'Article</h2></div>
+          <div class="card-header text-center bg-primary text-white" th:if="${mode=='edit'}"><h2>Formulaire de mise a jour Article</h2></div>
+          <div class="card-body">
+              <form th:action="@{saveArticle}" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label class="control-label">ID:</label>
+                      <label class="control-label" th:text="${product.id}"></label>
+                      <input type="hidden" name="id" class="form-control" th:value="${product.id}" />
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">Nom:</label>
+                      <input type="text" name="name" class="form-control" th:value="${product.name}" />
+                      <span th:errors=${product.name} class="text-danger"></span>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="form-label">Categorie</label>
+                      <select  name="category" id="category" class="form-control">
+                          <option th:each="listCategories : ${listCategories}"
+                                  th:value="${listCategories.idCat}"
+                                  th:text="${listCategories.nameCat}">
+
+                          </option>
+                      </select>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="control-label">Description:</label>
+                      <input type="text" name="description" class="form-control" th:value="${product.description}"/>
+                      <span th:errors=${product.description} class="text-danger"></span>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">Quantite:</label>
+                      <input type="number" name="quantite" class="form-control" th:value="${product.quantite}" />
+                      <span th:errors=${product.quantite} class="text-danger"></span>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">Prix:</label>
+                      <input type="number" name="price" class="form-control" th:value="${product.price}" />
+                      <span th:errors="${product.price}" class="text-danger"></span>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label">Photos: </label>
+                      <input type="file" name="fileImage" id="fileImage" accept="image/png, image/jpeg, image/jpg" class="form-control" />
+                  </div>
+<!--                  <div>-->
+<!--                      <img id="thumbnail" alt="Image Preview"/>-->
+<!--                  </div>-->
+                  <div>
+                      <button type="submit" class="btn btn-primary">Enregistrer</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+  </div>
+  </div>
+</body>
+</html>
